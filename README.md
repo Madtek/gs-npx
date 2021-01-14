@@ -1,0 +1,2 @@
+# gs-npx
+npx scripts
