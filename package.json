@@ -1,0 +1,25 @@
+{
+  "name": "gs-npx",
+  "version": "1.0.0",
+  "description": "npx scripts collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Madtek/gs-npx.git"
+  },
+  "keywords": [
+    "npx",
+    "helper",
+    "test",
+    "script"
+  ],
+  "author": "Gregor Sklorz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Madtek/gs-npx/issues"
+  },
+  "homepage": "https://github.com/Madtek/gs-npx#readme"
+}
