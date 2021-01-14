@@ -4,7 +4,8 @@
   "description": "npx scripts collection",
   "main": "index.js",
   "scripts": {
-    "test": "none"
+    "test": "echo 'no test setup'",
+    "gs-npx": "echo 'test'"
   },
   "repository": {
     "type": "git",
