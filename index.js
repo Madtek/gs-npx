@@ -15,8 +15,9 @@ fs.readFile( process.argv[2], (err, data) => {
     // console.log(data.toString());
 
     const rl = readline.createInterface({
-        input: data,
-        output: process.stdout
+        input: fs.createReadStream( process.argv[2] ),
+        output: process.stdout,
+        console: false
     });
 
 
