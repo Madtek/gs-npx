@@ -4,6 +4,7 @@
   "description": "npx scripts collection",
   "main": "index.js",
   "scripts": {
+    "index": "index.js",
     "test": "echo 'no test setup'",
     "gs-npx": "echo 'test'"
   },
