@@ -4,7 +4,7 @@
 
 let fs = require("fs");
 let readline = require("readline");
-
+let result = {de:{}, en:{}, fr:{}, it:{}};
 
 console.log("process.argv", process.argv, __dirname);
 
@@ -15,10 +15,11 @@ fs.readFile( process.argv[2], (err, data) => {
     // console.log(data.toString());
 
     const rl = readline.createInterface({
-        input: data
+        input: data,
+        output: process.stdout
     });
 
-    let result = {de:{}, en:{}, fr:{}, it:{}};
+
     let line = "";
     let idx = 0;
     let ns = "";
@@ -53,10 +54,15 @@ fs.readFile( process.argv[2], (err, data) => {
         }
     });
 
-    fs.writeFile("result", result.toString(), (er, dat) => {
-        if(er) {
-            throw er;
-        }
-        console.log("SAVE result file DONE.");
-    });
+    rl.on("close", () => {
+        console.log("parse result", result);
+        fs.writeFile("result", result.toString(), (er) => {
+            if(er) {
+                throw er;
+            }
+            console.log("SAVE result file DONE.");
+        });
+    })
+
+
 });
