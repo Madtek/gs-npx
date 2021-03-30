@@ -4,7 +4,7 @@
   "description": "npx scripts collection",
   "main": "index.js",
   "scripts": {
-    "index": "index.js",
+    "start": "index.js",
     "test": "echo 'no test setup'",
     "gs-npx": "echo 'test'"
   },
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/Madtek/gs-npx#readme",
   "bin": {
-	"blub": "index.js",
-	"blub2": "index.js"
+	"start": "index.js"
   }
 }
