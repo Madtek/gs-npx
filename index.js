@@ -58,7 +58,7 @@ fs.readFile( process.argv[2], (err, data) => {
     rl.on("close", () => {
         console.log("parse result", result);
 
-        fs.writeFile("result.json", JSON.parse(result), (er) => {
+        fs.writeFile("result.json", JSON.stringify(result), (er) => {
             if(er) {
                 throw er;
             }
