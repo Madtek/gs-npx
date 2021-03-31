@@ -42,7 +42,12 @@ fs.readFile( process.argv[2], (err, data) => {
         //ist eine .htm zeile
         idx = line.indexOf(".htm");
         if(idx > 0) {
-            ns = line.slice(0, idx);
+            if(ignnoreNs) {
+                ns = defaultNs;
+            }
+            else {
+                ns = line.slice(0, idx);
+            }
 
             if(!result.de[ns]) {
                 result.de[ns] = {};
@@ -54,19 +59,10 @@ fs.readFile( process.argv[2], (err, data) => {
             //have enough entries for all
             entries = line.split("\t");
             if(entries.length >= 6) {
-                if(ignnoreNs) {
-                    // Ignoring namespace NS
-                    result.de[defaultNs][entries[1]] = entries[4];
-                    result.en[defaultNs][entries[1]] = entries[4];
-                    result.fr[defaultNs][entries[1]] = entries[5];
-                    result.it[defaultNs][entries[1]] = entries[6];
-                }
-                else {
-                    result.de[ns][entries[1]] = entries[4];
-                    result.en[ns][entries[1]] = entries[4];
-                    result.fr[ns][entries[1]] = entries[5];
-                    result.it[ns][entries[1]] = entries[6];
-                }
+                result.de[ns][entries[1]] = entries[4];
+                result.en[ns][entries[1]] = entries[4];
+                result.fr[ns][entries[1]] = entries[5];
+                result.it[ns][entries[1]] = entries[6];
             }
         }
     });
