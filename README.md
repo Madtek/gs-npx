@@ -1,2 +1,6 @@
 # gs-npx
-npx scripts
+# parse-file
+
+npx @gs-scripts/parse-file url/to/file.txt
+
+test npx scripts

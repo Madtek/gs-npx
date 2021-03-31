@@ -47,16 +47,22 @@ fs.readFile( process.argv[2], (err, data) => {
             //have enough entries for all
             entries = line.split("\t");
             if(entries.length >= 6) {
-                result.de[ns][entries[1]] = entries[4];
-                result.en[ns][entries[1]] = entries[4];
-                result.fr[ns][entries[1]] = entries[5];
-                result.it[ns][entries[1]] = entries[6];
+                // result.de[ns][entries[1]] = entries[4];
+                // result.en[ns][entries[1]] = entries[4];
+                // result.fr[ns][entries[1]] = entries[5];
+                // result.it[ns][entries[1]] = entries[6];
+
+                // Ignoring namespace NS
+                result.de[entries[1]] = entries[4];
+                result.en[entries[1]] = entries[4];
+                result.fr[entries[1]] = entries[5];
+                result.it[entries[1]] = entries[6];
             }
         }
     });
 
     rl.on("close", () => {
-        console.log("parse result", result);
+        // console.log("parse result", result);
 
         fs.writeFile("result.json", JSON.stringify(result), (er) => {
             if(er) {

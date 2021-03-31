@@ -1,5 +1,5 @@
 {
-  "name": "gs-npx",
+  "name": "@gs-script/parse-file",
   "version": "1.0.0",
   "description": "npx scripts collection",
   "main": "index.js",
@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/Madtek/gs-npx#readme",
   "bin": {
-	"start": "index.js"
+    "start": "index.js"
   }
 }
