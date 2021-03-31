@@ -6,6 +6,12 @@ let fs = require("fs");
 let readline = require("readline");
 let result = {de:{}, en:{}, fr:{}, it:{}};
 
+let ignnoreNs = false;
+if (process.argv.indexOf("--ignore-ns") >= 0) {
+    ignnoreNs = true;
+}
+
+
 console.log("process.argv", process.argv, __dirname);
 
 fs.readFile( process.argv[2], (err, data) => {
@@ -47,16 +53,19 @@ fs.readFile( process.argv[2], (err, data) => {
             //have enough entries for all
             entries = line.split("\t");
             if(entries.length >= 6) {
-                // result.de[ns][entries[1]] = entries[4];
-                // result.en[ns][entries[1]] = entries[4];
-                // result.fr[ns][entries[1]] = entries[5];
-                // result.it[ns][entries[1]] = entries[6];
-
-                // Ignoring namespace NS
-                result.de[entries[1]] = entries[4];
-                result.en[entries[1]] = entries[4];
-                result.fr[entries[1]] = entries[5];
-                result.it[entries[1]] = entries[6];
+                if(ignnoreNs) {
+                    // Ignoring namespace NS
+                    result.de[entries[1]] = entries[4];
+                    result.en[entries[1]] = entries[4];
+                    result.fr[entries[1]] = entries[5];
+                    result.it[entries[1]] = entries[6];
+                }
+                else {
+                    result.de[ns][entries[1]] = entries[4];
+                    result.en[ns][entries[1]] = entries[4];
+                    result.fr[ns][entries[1]] = entries[5];
+                    result.it[ns][entries[1]] = entries[6];
+                }
             }
         }
     });
